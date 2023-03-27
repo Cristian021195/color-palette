@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es" style="height: 100vh;scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paleta de colores</title>
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+    <!--<link rel="manifest" href="./manifest.json"> el archivo de manifiesto permite lo instalable, aun asi si el sw se puede registrar y usar cache y sus ventajas-->
+    <meta name="application-name" content="Colores"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+    <meta name="apple-mobile-web-app-title" content="Colores"/>
+    <meta name="description" content="Paleta de colores"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="x5-page-mode" content="app"/>
+    <meta name="browsermode" content="application"/>
+    <meta name="msapplication-TileColor" content="#1E90FF"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="theme-color" content="#1E90FF"/>
+
+    <meta property="og:title" content="Cristian Gramajo">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cristian021195.github.io/portfolio/img/dev-icon.jpg">
+    <meta property="og:url" content="https://cristian021195.github.io/portfolio/">
+    <meta property="og:site_name" content="Cristian Ismael Gramajo">
+    <meta property="og:description" content="Porfolio personal - Personal Website">
+
+    <link rel="apple-touch-icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg"/>
+    <link rel="mask-icon" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg" sizes="any" type="image/svg+xml" color="#1E90FF"/>
+    <style>
+        @font-face {
+            font-family: 'Bebas Neue';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('./css/BebasNeue-Regular.woff2') format('woff2'),url('./css/BebasNeue-Regular.woff') format('woff');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Bebas Neue';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('./css/BebasNeue-Regular.woff2') format('woff2'),url('./css/BebasNeue-Regular.woff') format('woff');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        .h-scroll-style::-webkit-scrollbar, .v-scroll-style::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        .h-scroll-style::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+        }
+        .h-scroll-style::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0);
+            border-radius: 31px;
+        }.v-scroll-style::-webkit-scrollbar-thumb {
+  background: #137be2;
+  border-radius: 50px;
+}
+.v-scroll-style::-webkit-scrollbar-track {
+  background: #8ec7ff;
+  border-radius: 31px;
+}
+        
+        header{
+            background-color: dodgerblue;
+            width: 100%;
+            height: 4em;
+            position: sticky;
+            top: 0;
+            box-shadow: 0px 2px 6px -1px rgba(0,0,0,0.5);
+-webkit-box-shadow: 0px 2px 6px -1px rgba(0,0,0,0.5);
+-moz-box-shadow: 0px 2px 6px -1px rgba(0,0,0,0.5);
+        }
+        footer{
+            background-color: #1d1d1d;
+            color: whitesmoke;
+            padding: 0.5em;
+            text-align: center;
+        }
+
+        .d-flex{display: flex;}
+        .justify-content-end{justify-content: end;}
+        .justify-content-center{justify-content: center;}
+        .justify-content-between{justify-content: space-between;}
+        .justify-content-start{justify-content: start;}
+        .align-items-center{align-items: center;}
+        .flex-wrap{flex-wrap: wrap;}.justify-content-evenly{justify-content: space-evenly;}
+        header ul li a{
+            text-decoration: none;
+            color: whitesmoke;
+        }
+        header ul li{
+            list-style: none;
+            font-size: 1.2em;
+        }
+        header ul{
+            width: 34em;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        header a, h1 {
+            font-family: 'Bebas Neue', sans-serif;
+        }h1{
+  font-size: 3em;
+}.btn{
+  border-radius: 0.4em;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+.btn:active{
+    transform: scale(1.1)!important;
+}
+.btn:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+section{    margin: 0 auto;
+    min-height: 30em;}
+        a,p, h3, h2,label, button{font-family: sans-serif!important;}
+        header ul li{font-family: 'Bebas Neue';}
+        label{color: #0977e4;text-decoration: underline;}
+        h1{text-align: center;}
+        .card-header{
+            max-width: 10em;
+            max-width: 10em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:1em auto;
+        }.p-1{padding: 0.6em;}
+.p-2{padding: 1em;}
+.m-2{margin:1em!important};
+.m-3{margin:1.5em!important};
+.m-4{margin:2em!important};
+.p-3{padding: 1.5em;}button{
+  border: none;
+}/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}.intro{
+  position: relative;
+  -webkit-animation: introMove 10s infinite;
+  animation: introMove 10s infinite;
+  z-index: -3;
+  height: 45em;
+}
+#caja1{
+    background-color: dodgerblue;
+    grid-column: 5/8;grid-row: 1/6;
+    text-align: end;color: whitesmoke;
+}
+#caja2{
+    border-radius: 0.2em; grid-column: 1/6;grid-row: 2/5;
+}
+#caja3{
+    padding-right: 1em; grid-column: 6/8;grid-row: 4/8; display: flex; justify-content: center; align-items: center;
+}
+#caja4{
+    grid-column: 1/5;grid-row: 5/8;
+}
+.circle-svg{
+    background-color:whitesmoke;border-radius:0.5em;width:12em;min-width:12em;margin:2em;box-shadow:5px 7px 7px 0px rgba(0,0,0,0.1);
+}
+
+@keyframes introMove{
+  0%{
+      -webkit-clip-path: polygon(3% 19%, 92% 5%, 96% 93%, 8% 89%);
+      clip-path: polygon(3% 19%, 92% 5%, 96% 93%, 8% 89%);
+  }
+  25%{
+      -webkit-clip-path: polygon(5% 8%, 91% 15%, 95% 89%, 8% 89%);
+      clip-path: polygon(5% 8%, 91% 15%, 95% 89%, 8% 89%);
+  }
+  50%{
+      -webkit-clip-path: polygon(16% 26%, 91% 15%, 95% 89%, 6% 75%);
+      clip-path: polygon(16% 26%, 91% 15%, 95% 89%, 6% 75%);
+  }
+  75%{
+      -webkit-clip-path: polygon(19% 7%, 91% 15%, 93% 72%, 8% 93%);
+      clip-path: polygon(19% 7%, 91% 15%, 93% 72%, 8% 93%);
+  }
+  100%{
+      -webkit-clip-path: polygon(3% 19%, 92% 5%, 96% 93%, 8% 89%);
+      clip-path: polygon(3% 19%, 92% 5%, 96% 93%, 8% 89%);
+  }
+}
+        @media only screen and (max-width: 768px) {
+            [class*="col-"] {
+                width: 100%;
+            }
+            header{
+                height: 5em;
+            }
+            header ul{
+                overflow-x: scroll;
+                justify-content: start;
+                padding-left: 2em;
+                height: 100%;
+            }
+            ul{
+                width: 200%
+            }
+            ul li{
+                text-align: center;
+                margin: 0 2em 0 0em;
+            }
+            .h-scroll{
+                height: 80vh;
+                display: flex;
+                justify-content: start;
+                overflow-x: scroll;
+                flex-wrap: nowrap;
+                align-items: center;
+            }.intro{
+    position: relative;
+    -webkit-animation: none;
+    animation: none;
+    padding: 2em;
+    display: flex; justify-content: center;
+  }
+        }@media only screen and (max-width: 1200px) {
+  .intro{
+    position: relative;
+    -webkit-animation: none;
+    animation: none;
+    padding: 2em;
+    display: flex; justify-content: center;
+    border: 1em solid #fff;
+    height: 30em;
+  }
+  #caja1{
+    grid-column: 1/8;grid-row: 1/2;text-align: center; background-color: #fff; color: #000;display: flex; align-items: center; justify-content: center;
+  }
+  #caja2{
+    display: none;grid-column: 1/1;grid-row: 1/1; background-color: red;
+  }
+  #caja3{
+    padding-right: 0em; grid-column: 1/8;grid-row: 2/6; display: flex; justify-content: center; align-items: center;
+    }
+    #caja4{
+        grid-column: 1/8;grid-row: 6/8;
+    }
+}
+.card-body p { white-space: nowrap; width: auto; overflow: hidden; text-overflow: ellipsis;}
+.card-body label::before{content: 'Leer Mas';}
+input[type="checkbox"]{display: none;}
+
+#horabondi_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
+#horabondi_c:checked ~ label::before{content: 'Leer Menos';}
+
+#romano_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
+#romano_c:checked ~ label::before{content: 'Leer Menos';}
+
+#horabondi_beta_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
+#horabondi_beta_c:checked ~ label::before{content: 'Leer Menos';}
+
+#panerita_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
+#panerita_c:checked ~ label::before{content: 'Leer Menos';}
+
+#notas_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
+#notas_c:checked ~ label::before{content: 'Leer Menos';}
+
+#climap_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
+#climap_c:checked ~ label::before{content: 'Leer Menos';}
+
+#escritos_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
+#escritos_c:checked ~ label::before{content: 'Leer Menos';}
+
+#listacompras_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
+#listacompras_c:checked ~ label::before{content: 'Leer Menos';}
+
+#radio_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
+#radio_c:checked ~ label::before{content: 'Leer Menos';}
+
+
+
+.custom-grid {  display: grid;
+    display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+  gap: 1em; 
+  grid-template-areas: 
+    ". . . . . . ."
+    ". . . . . . ."
+    ". . . . . . ."
+    ". . . . . . ."
+    ". . . . . . ."
+    ". . . . . . ."
+    ". . . . . . ."; 
+}
+    </style>
+</head>
+<body style="margin: 0;padding: 0;" class="v-scroll-style">
+    <header class='d-flex justify-content-end align-items-center'>
+        <ul class='h-scroll-style'>
+          <li><a href="#inicio">inicio</a></li>
+          <li><a href="https://cristian021195.github.io/portfolio/" target="_blank">sobre mi</a></li>
+        </ul>
+    </header>
+    <main>
+
+        <section>
+            <article class="p-2">
+                <h1>Colores</h1>
+                <div class="d-flex flex-wrap p-3">
+                    <div class="col-12 d-flex justify-content-center flex-wrap" id="resultado_colores"></div>
+                    <div class="col-12 d-flex justify-content-center flex-wrap" id="botones_colores"></div>
+                </div>
+            </article>
+        </section>
+
+    </main>
+    <footer><p>&copy; Cristian Gramajo - Todos los derechos reservados</p></footer>
+
+    <script>
+        const colores = [
+{name:'red-0', color:'#FFEBEE'},
+{name:'red-1', color:'#FFCDD2'},
+{name:'red-2', color:'#EF9A9A'},
+{name:'red-3', color:'#E57373'},
+{name:'red-4', color:'#EF5350'},
+{name:'red-5', color:'#F44336'},
+{name:'red-6', color:'#E53935'},
+{name:'red-7', color:'#D32F2F'},
+{name:'red-8', color:'#C62828'},
+{name:'red-9', color:'#B71C1C'},
+{name:'pink-0', color:'#FCE4EC'},
+{name:'pink-1', color:'#F8BBD0'},
+{name:'pink-2', color:'#F48FB1'},
+{name:'pink-3', color:'#F06292'},
+{name:'pink-4', color:'#EC407A'},
+{name:'pink-5', color:'#E91E63'},
+{name:'pink-6', color:'#D81B60'},
+{name:'pink-7', color:'#C2185B'},
+{name:'pink-8', color:'#AD1457'},
+{name:'pink-9', color:'#880E4F'},
+{name:'purple-0', color:'#F3E5F5'},
+{name:'purple-1', color:'#E1BEE7'},
+{name:'purple-2', color:'#CE93D8'},
+{name:'purple-3', color:'#BA68C8'},
+{name:'purple-4', color:'#AB47BC'},
+{name:'purple-5', color:'#9C27B0'},
+{name:'purple-6', color:'#8E24AA'},
+{name:'purple-7', color:'#7B1FA2'},
+{name:'purple-8', color:'#6A1B9A'},
+{name:'purple-9', color:'#4A148C'},
+{name:'violette-0', color:'#EDE7F6'},
+{name:'violette-1', color:'#D1C4E9'},
+{name:'violette-2', color:'#B39DDB'},
+{name:'violette-3', color:'#9575CD'},
+{name:'violette-4', color:'#7E57C2'},
+{name:'violette-5', color:'#673AB7'},
+{name:'violette-6', color:'#5E35B1'},
+{name:'violette-7', color:'#512DA8'},
+{name:'violette-8', color:'#4527A0'},
+{name:'violette-9', color:'#311B92'},
+{name:'indigo-0', color:'#E8EAF6'},
+{name:'indigo-1', color:'#C5CAE9'},
+{name:'indigo-2', color:'#9FA8DA'},
+{name:'indigo-3', color:'#7986CB'},
+{name:'indigo-4', color:'#5C6BC0'},
+{name:'indigo-5', color:'#3F51B5'},
+{name:'indigo-6', color:'#3949AB'},
+{name:'indigo-7', color:'#303F9F'},
+{name:'indigo-8', color:'#283593'},
+{name:'indigo-9', color:'#1A237E'},
+{name:'blue-0', color:'#E3F2FD'},
+{name:'blue-1', color:'#BBDEFB'},
+{name:'blue-2', color:'#90CAF9'},
+{name:'blue-3', color:'#64B5F6'},
+{name:'blue-4', color:'#42A5F5'},
+{name:'blue-5', color:'#2196F3'},
+{name:'blue-6', color:'#1E88E5'},
+{name:'blue-7', color:'#1976D2'},
+{name:'blue-8', color:'#1565C0'},
+{name:'blue-9', color:'#0D47A1'},
+{name:'lblue-0', color:'#E1F5FE'},
+{name:'lblue-1', color:'#B3E5FC'},
+{name:'lblue-2', color:'#81D4FA'},
+{name:'lblue-3', color:'#4FC3F7'},
+{name:'lblue-4', color:'#29B6F6'},
+{name:'lblue-5', color:'#03A9F4'},
+{name:'lblue-6', color:'#039BE5'},
+{name:'lblue-7', color:'#0288D1'},
+{name:'lblue-8', color:'#0277BD'},
+{name:'lblue-9', color:'#01579B'},
+{name:'cyan-0', color:'#E0F7FA'},
+{name:'cyan-1', color:'#B2EBF2'},
+{name:'cyan-2', color:'#80DEEA'},
+{name:'cyan-3', color:'#4DD0E1'},
+{name:'cyan-4', color:'#26C6DA'},
+{name:'cyan-5', color:'#00BCD4'},
+{name:'cyan-6', color:'#00ACC1'},
+{name:'cyan-7', color:'#0097A7'},
+{name:'cyan-8', color:'#00838F'},
+{name:'cyan-9', color:'#006064'},
+{name:'teal-0', color:'#E0F2F1'},
+{name:'teal-1', color:'#B2DFDB'},
+{name:'teal-2', color:'#80CBC4'},
+{name:'teal-3', color:'#4DB6AC'},
+{name:'teal-4', color:'#26A69A'},
+{name:'teal-5', color:'#009688'},
+{name:'teal-6', color:'#00897B'},
+{name:'teal-7', color:'#00796B'},
+{name:'teal-8', color:'#00695C'},
+{name:'teal-9', color:'#004D40'},
+{name:'green-0', color:'#E8F5E9'},
+{name:'green-1', color:'#C8E6C9'},
+{name:'green-2', color:'#A5D6A7'},
+{name:'green-3', color:'#81C784'},
+{name:'green-4', color:'#66BB6A'},
+{name:'green-5', color:'#4CAF50'},
+{name:'green-6', color:'#43A047'},
+{name:'green-7', color:'#388E3C'},
+{name:'green-8', color:'#2E7D32'},
+{name:'green-9', color:'#1B5E20'},
+{name:'lgreen-0', color:'#F1F8E9'},
+{name:'lgreen-1', color:'#DCEDC8'},
+{name:'lgreen-2', color:'#C5E1A5'},
+{name:'lgreen-3', color:'#AED581'},
+{name:'lgreen-4', color:'#9CCC65'},
+{name:'lgreen-5', color:'#8BC34A'},
+{name:'lgreen-6', color:'#7CB342'},
+{name:'lgreen-7', color:'#689F38'},
+{name:'lgreen-8', color:'#558B2F'},
+{name:'lgreen-9', color:'#33691E'},
+{name:'lime-0', color:'#F9FBE7'},
+{name:'lime-1', color:'#F0F4C3'},
+{name:'lime-2', color:'#E6EE9C'},
+{name:'lime-3', color:'#DCE775'},
+{name:'lime-4', color:'#D4E157'},
+{name:'lime-5', color:'#CDDC39'},
+{name:'lime-6', color:'#C0CA33'},
+{name:'lime-7', color:'#AFB42B'},
+{name:'lime-8', color:'#9E9D24'},
+{name:'lime-9', color:'#827717'},
+{name:'yellow-0', color:'#FFFDE7'},
+{name:'yellow-1', color:'#FFF9C4'},
+{name:'yellow-2', color:'#FFF59D'},
+{name:'yellow-3', color:'#FFF176'},
+{name:'yellow-4', color:'#FFEE58'},
+{name:'yellow-5', color:'#FFEB3B'},
+{name:'yellow-6', color:'#FDD835'},
+{name:'yellow-7', color:'#FBC02D'},
+{name:'yellow-8', color:'#F9A825'},
+{name:'yellow-9', color:'#F57F17'},
+{name:'amber-0', color:'#FFF8E1'},
+{name:'amber-1', color:'#FFECB3'},
+{name:'amber-2', color:'#FFE082'},
+{name:'amber-3', color:'#FFD54F'},
+{name:'amber-4', color:'#FFC107'},
+{name:'amber-5', color:'#FFC107'},
+{name:'amber-6', color:'#FFB300'},
+{name:'amber-7', color:'#FFA000'},
+{name:'amber-8', color:'#FF8F00'},
+{name:'amber-9', color:'#FF6F00'},
+{name:'orange-1', color:'#FFF3E0'},
+{name:'orange-0', color:'#FFE0B2'},
+{name:'orange-2', color:'#FFCC80'},
+{name:'orange-3', color:'#FFB74D'},
+{name:'orange-4', color:'#FFA726'},
+{name:'orange-5', color:'#FF9800'},
+{name:'orange-6', color:'#FB8C00'},
+{name:'orange-7', color:'#F57C00'},
+{name:'orange-8', color:'#EF6C00'},
+{name:'orange-9', color:'#E65100'},
+{name:'dorange-0', color:'#FBE9E7'},
+{name:'dorange-1', color:'#FFCCBC'},
+{name:'dorange-2', color:'#FFAB91'},
+{name:'dorange-3', color:'#FF8A65'},
+{name:'dorange-4', color:'#FF7043'},
+{name:'dorange-5', color:'#FF5722'},
+{name:'dorange-6', color:'#F4511E'},
+{name:'dorange-7', color:'#E64A19'},
+{name:'dorange-8', color:'#D84315'},
+{name:'dorange-9', color:'#BF360C'},
+{name:'brown-0', color:'#EFEBE9'},
+{name:'brown-1', color:'#D7CCC8'},
+{name:'brown-2', color:'#BCAAA4'},
+{name:'brown-3', color:'#A1887F'},
+{name:'brown-4', color:'#8D6E63'},
+{name:'brown-5', color:'#795548'},
+{name:'brown-6', color:'#6D4C41'},
+{name:'brown-7', color:'#5D4037'},
+{name:'brown-8', color:'#4E342E'},
+{name:'brown-9', color:'#3E2723'},
+{name:'grey-0', color:'#FAFAFA'},
+{name:'grey-1', color:'#F5F5F5'},
+{name:'grey-2', color:'#EEEEEE'},
+{name:'grey-3', color:'#E0E0E0'},
+{name:'grey-4', color:'#BDBDBD'},
+{name:'grey-5', color:'#9E9E9E'},
+{name:'grey-6', color:'#757575'},
+{name:'grey-7', color:'#616161'},
+{name:'grey-8', color:'#424242'},
+{name:'grey-9', color:'#212121'},
+{name:'bgrey-0', color:'#ECEFF1'},
+{name:'bgrey-1', color:'#CFD8DC'},
+{name:'bgrey-2', color:'#B0BEC5'},
+{name:'bgrey-3', color:'#90A4AE'},
+{name:'bgrey-4', color:'#78909C'},
+{name:'bgrey-5', color:'#607D8B'},
+{name:'bgrey-6', color:'#546E7A'},
+{name:'bgrey-7', color:'#455A64'},
+{name:'bgrey-8', color:'#37474F'},
+{name:'bgrey-9', color:'#263238'},
+{name:'ac-red-0', color:'#FF8A80'},
+{name:'ac-red-1', color:'#FF5252'},
+{name:'ac-red-2', color:'#FF1744'},
+{name:'ac-red-3', color:'#D50000'},
+{name:'ac-pink-0', color:'#FF80AB'},
+{name:'ac-pink-1', color:'#FF4081'},
+{name:'ac-pink-2', color:'#F50057'},
+{name:'ac-pink-3', color:'#C51162'},
+{name:'ac-purple-0', color:'#EA80FC'},
+{name:'ac-purple-1', color:'#E040FB'},
+{name:'ac-purple-2', color:'#D500F9'},
+{name:'ac-purple-3', color:'#D500F9'},
+{name:'ac-violette-0', color:'#B388FF'},
+{name:'ac-violette-1', color:'#7C4DFF'},
+{name:'ac-violette-2', color:'#651FFF'},
+{name:'ac-violette-3', color:'#6200EA'},
+{name:'ac-indigo-0', color:'#8C9EFF'},
+{name:'ac-indigo-1', color:'#536DFE'},
+{name:'ac-indigo-2', color:'#3D5AFE'},
+{name:'ac-indigo-3', color:'#304FFE'},
+{name:'ac-blue-0', color:'#82B1FF'},
+{name:'ac-blue-1', color:'#448AFF'},
+{name:'ac-blue-2', color:'#2979FF'},
+{name:'ac-blue-3', color:'#2962FF'},
+{name:'ac-lblue-0', color:'#80D8FF'},
+{name:'ac-lblue-1', color:'#40C4FF'},
+{name:'ac-lblue-2', color:'#00B0FF'},
+{name:'ac-lblue-3', color:'#0091EA'},
+{name:'ac-cyan-0', color:'#84FFFF'},
+{name:'ac-cyan-1', color:'#18FFFF'},
+{name:'ac-cyan-2', color:'#00E5FF'},
+{name:'ac-cyan-3', color:'#00B8D4'},
+{name:'ac-teal-0', color:'#A7FFEB'},
+{name:'ac-teal-1', color:'#64FFDA'},
+{name:'ac-teal-2', color:'#1DE9B6'},
+{name:'ac-teal-3', color:'#00BFA5'},
+{name:'ac-green-0', color:'#B9F6CA'},
+{name:'ac-green-1', color:'#69F0AE'},
+{name:'ac-green-2', color:'#00E676'},
+{name:'ac-green-3', color:'#00C853'},
+{name:'ac-lgreen-0', color:'#CCFF90'},
+{name:'ac-lgreen-1', color:'#B2FF59'},
+{name:'ac-lgreen-2', color:'#76FF03'},
+{name:'ac-lgreen-3', color:'#64DD17'},
+{name:'ac-lime-1', color:'#F4FF81'},
+{name:'ac-lime-0', color:'#EEFF41'},
+{name:'ac-lime-2', color:'#C6FF00'},
+{name:'ac-lime-3', color:'#AEEA00'},
+{name:'ac-yellow-0', color:'#FFFF8D'},
+{name:'ac-yellow-1', color:'#FFFF00'},
+{name:'ac-yellow-2', color:'#FFEA00'},
+{name:'ac-yellow-3', color:'#FFD600'},
+{name:'ac-amber-0', color:'#FFE57F'},
+{name:'ac-amber-1', color:'#FFD740'},
+{name:'ac-amber-2', color:'#FFC400'},
+{name:'ac-amber-3', color:'#FFAB00'},
+{name:'ac-orange-1', color:'#FFD180'},
+{name:'ac-orange-0', color:'#FFAB40'},
+{name:'ac-orange-2', color:'#FF9100'},
+{name:'ac-orange-3', color:'#FF6D00'},
+{name:'ac-dorange-0', color:'#FF9E80'},
+{name:'ac-dorange-1', color:'#FF6E40'},
+{name:'ac-dorange-2', color:'#FF3D00'},
+{name:'ac-dorange-3', color:'#DD2C00'},
+            ]
+        const $botonesColores = document.getElementById('botones_colores');
+
+        function crearListadoColores(listado = []){
+            listado.forEach(e=>{
+
+                const $btn = document.createElement('btn'); $btn.classList.add('btn', 'p-1', 'm-4'); 
+                $btn.textContent = e.name; $btn.style.backgroundColor = e.color;$btn.style.margin = '0.6em';
+                $btn.setAttribute('data-color', e.color);
+                $btn.addEventListener('click', (e)=>{
+                    if(copiarTexto(e.target.dataset.color)){alert('¡Color: '+e.target.dataset.color+' copiado al portapapeles!')}
+                })
+
+                $botonesColores.appendChild($btn);
+            });
+            
+        }
+
+        function copiarTexto(texto=""){
+            if(window){
+                if(navigator){    
+                if(navigator.clipboard){
+                    navigator.clipboard.writeText(texto).then(//res=>{alert("¡copiado!")}
+                    ).catch(()=>{alert("¡Erro al copiar dato!")}
+                    );
+                    return true;
+                }else{
+                    return false;
+                }
+                }else{
+                return false;
+                }
+            }
+        }
+
+        crearListadoColores(colores);
+    </script>
+</body>
+</html>
