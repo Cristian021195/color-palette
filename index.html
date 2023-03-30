@@ -606,22 +606,22 @@ input[type="checkbox"]{display: none;}
         }
 
         function copiarTexto(texto=""){
-            if(window){
-                if(navigator){    
-                if(navigator.clipboard){
-                    navigator.clipboard.writeText(texto).then(//res=>{alert("¡copiado!")}
-                    ).catch((err)=>{alert("¡Erro al copiar dato! "+JSON.stringify(err))}
-                    );
-                    return true;
+                if(window && navigator){    
+                    if(navigator.clipboard){
+                        navigator.clipboard.writeText(texto).then(
+                            res=>{
+                                alert("¡copiado!")
+                            }
+                        ).catch((err)=>{
+                            alert("¡Erro al copiar dato! "+JSON.stringify(err))
+                        });
+                    }else{
+                        return false;
+                    }
                 }else{
                     return false;
-                }
-                }else{
-                return false;
-                }
             }
         }
-
         crearListadoColores(colores);
     </script>
 </body>
