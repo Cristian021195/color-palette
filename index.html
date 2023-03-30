@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-    <!--<link rel="manifest" href="./manifest.json"> el archivo de manifiesto permite lo instalable, aun asi si el sw se puede registrar y usar cache y sus ventajas-->
+    <link rel="manifest" href="./manifest.json">
     <meta name="application-name" content="Colores"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
@@ -18,19 +18,19 @@
     <meta name="mobile-web-app-capable" content="yes"/>
     <meta name="x5-page-mode" content="app"/>
     <meta name="browsermode" content="application"/>
-    <meta name="msapplication-TileColor" content="#1E90FF"/>
+    <meta name="msapplication-TileColor" content="#F06292"/>
     <meta name="msapplication-tap-highlight" content="no"/>
-    <meta name="theme-color" content="#1E90FF"/>
+    <meta name="theme-color" content="#F06292"/>
 
     <meta property="og:title" content="Cristian Gramajo">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://cristian021195.github.io/portfolio/img/dev-icon.jpg">
     <meta property="og:url" content="https://cristian021195.github.io/portfolio/">
-    <meta property="og:site_name" content="Cristian Ismael Gramajo">
-    <meta property="og:description" content="Porfolio personal - Personal Website">
+    <meta property="og:site_name" content="Colores">
+    <meta property="og:description" content="Colores - Cristian Gramajo">
 
     <link rel="apple-touch-icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg"/>
-    <link rel="mask-icon" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg" sizes="any" type="image/svg+xml" color="#1E90FF"/>
+    <link rel="mask-icon" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg" sizes="any" type="image/svg+xml" color="#F06292"/>
     <style>
         @font-face {
             font-family: 'Bebas Neue';
@@ -61,16 +61,16 @@
             background: rgba(0, 0, 0, 0);
             border-radius: 31px;
         }.v-scroll-style::-webkit-scrollbar-thumb {
-  background: #137be2;
+  background: #F06292;
   border-radius: 50px;
 }
 .v-scroll-style::-webkit-scrollbar-track {
-  background: #8ec7ff;
+  background: #eeb4c7;
   border-radius: 31px;
 }
         
         header{
-            background-color: dodgerblue;
+            background-color: #F06292;
             width: 100%;
             height: 4em;
             position: sticky;
@@ -332,6 +332,9 @@ input[type="checkbox"]{display: none;}
     <footer><p>&copy; Cristian Gramajo - Todos los derechos reservados</p></footer>
 
     <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register("./serviceworker.js");
+        }
         const colores = [
 {name:'red-0', color:'#FFEBEE'},
 {name:'red-1', color:'#FFCDD2'},
