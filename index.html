@@ -610,7 +610,7 @@ input[type="checkbox"]{display: none;}
                 if(navigator){    
                 if(navigator.clipboard){
                     navigator.clipboard.writeText(texto).then(//res=>{alert("¡copiado!")}
-                    ).catch(()=>{alert("¡Erro al copiar dato!")}
+                    ).catch((err)=>{alert("¡Erro al copiar dato! "+JSON.stringify(err))}
                     );
                     return true;
                 }else{
