@@ -20,7 +20,7 @@
     <meta name="browsermode" content="application"/>
     <meta name="msapplication-TileColor" content="#F06292"/>
     <meta name="msapplication-tap-highlight" content="no"/>
-    <meta name="theme-color" content="#F06292"/>
+    <meta name="theme-color" content="#F06292" id="theme-color"/>
 
     <meta property="og:title" content="Cristian Gramajo">
     <meta property="og:type" content="website">
@@ -95,17 +95,21 @@
         .flex-wrap{flex-wrap: wrap;}.justify-content-evenly{justify-content: space-evenly;}
         header ul li a{
             text-decoration: none;
-            color: whitesmoke;
+            color: #3f3f3f;
         }
         header ul li{
             list-style: none;
             font-size: 1.2em;
         }
         header ul{
-            width: 34em;
+            width: 14em;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
+            background-color: white;
+            border-radius: 0.4em;
+            padding: 0.5em;
+            margin-right: 3em;
         }
         header a, h1 {
             font-family: 'Bebas Neue', sans-serif;
@@ -211,17 +215,15 @@ section{    margin: 0 auto;
                 height: 5em;
             }
             header ul{
-                overflow-x: scroll;
                 justify-content: start;
-                padding-left: 2em;
-                height: 100%;
+                height: auto;
             }
             ul{
                 width: 200%
             }
             ul li{
                 text-align: center;
-                margin: 0 2em 0 0em;
+                margin: 0 1em 0 1em;
             }
             .h-scroll{
                 height: 80vh;
@@ -307,10 +309,11 @@ input[type="checkbox"]{display: none;}
     ". . . . . . ."
     ". . . . . . ."; 
 }
+
     </style>
 </head>
 <body style="margin: 0;padding: 0;" class="v-scroll-style">
-    <header class='d-flex justify-content-end align-items-center'>
+    <header class='d-flex justify-content-end align-items-center' id="header">
         <ul class='h-scroll-style'>
           <li><a href="#inicio">inicio</a></li>
           <li><a href="https://cristian021195.github.io/portfolio/" target="_blank">sobre mi</a></li>
@@ -332,6 +335,7 @@ input[type="checkbox"]{display: none;}
     <footer><p>&copy; Cristian Gramajo - Todos los derechos reservados</p></footer>
 
     <script>
+        const $header = document.getElementById('header');
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register("./serviceworker.js");
         }
@@ -592,6 +596,7 @@ input[type="checkbox"]{display: none;}
 {name:'ac-dorange-3', color:'#DD2C00'},
             ]
         const $botonesColores = document.getElementById('botones_colores');
+        const $themeColor = document.getElementById('theme-color');
 
         function crearListadoColores(listado = []){
             listado.forEach(e=>{
@@ -600,6 +605,8 @@ input[type="checkbox"]{display: none;}
                 $btn.textContent = e.name; $btn.style.backgroundColor = e.color;$btn.style.margin = '0.6em';
                 $btn.setAttribute('data-color', e.color);
                 $btn.addEventListener('click', (e)=>{
+                    $header.style.backgroundColor = e.target.dataset.color;
+                    $themeColor.setAttribute('content',e.target.dataset.color);
                     if(copiarTexto(e.target.dataset.color)){alert('¡Color: '+e.target.dataset.color+' copiado al portapapeles!')}
                 })
 
@@ -613,7 +620,7 @@ input[type="checkbox"]{display: none;}
                     if(navigator.clipboard){
                         navigator.clipboard.writeText(texto).then(
                             res=>{
-                                alert("¡copiado!")
+                                alert("¡copiado! "+texto);
                             }
                         ).catch((err)=>{
                             alert("¡Error! : "+JSON.stringify(err))
