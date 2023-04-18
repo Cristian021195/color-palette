@@ -1,4 +1,4 @@
-const CACHE_NAME = "portfolio-v22";
+const CACHE_NAME = "portfolio-v23";
 const urlsToCache = ["./","./css/BebasNeue-Regular.woff", "./css/BebasNeue-Regular.woff2", "https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg"];
 
 // si cambiamos la version de cache se elimina la anterior
