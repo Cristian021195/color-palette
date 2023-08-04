@@ -118,6 +118,12 @@
   font-weight: bold;
   text-decoration: none;
   font-family: sans-serif;
+  -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: #000;
+   color:#fff;
+   font-size: 1.5rem;
+   margin:0.5em!important;
+   padding: 0.5em;
 }
 .btn:active{
     transform: scale(1.1)!important;
@@ -599,7 +605,7 @@ input[type="checkbox"]{display: none;}
         function crearListadoColores(listado = []){
             listado.forEach(e=>{
 
-                const $btn = document.createElement('btn'); $btn.classList.add('btn', 'p-1', 'm-4'); 
+                const $btn = document.createElement('btn'); $btn.classList.add('btn'); //, 'p-1', 'm-4'
                 $btn.textContent = e.name; $btn.style.backgroundColor = e.color;$btn.style.margin = '0.6em';
                 $btn.setAttribute('data-color', e.color);
                 $btn.addEventListener('click', (e)=>{
