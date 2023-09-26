@@ -46,6 +46,7 @@
   background: #F06292;
   border-radius: 50px;
 }
+.d-none{display: none;}
 .v-scroll-style::-webkit-scrollbar-track {
   background: #eeb4c7;
   border-radius: 31px;
@@ -301,10 +302,13 @@ input[type="checkbox"]{display: none;}
     </style>
 </head>
 <body style="margin: 0;padding: 0;" class="v-scroll-style">
-    <header class='d-flex justify-content-end align-items-center' id="header">
+    <header class='d-flex justify-content-end align-items-center flex-wrap' id="header">
         <ul class='h-scroll-style'>
-          <li><a href="#inicio">inicio</a></li>
-          <li><a href="https://cristian021195.github.io/portfolio/" target="_blank">sobre mi</a></li>
+            <li id="copy-status" class="d-none" style="background-color: green; border-radius: 0.2rem;color: white; padding: 0.1rem 0.5rem 0.1rem 0.5rem;">
+                <b>¡Copiado!</b>
+            </li>
+            <li><a href="#inicio">inicio</a></li>
+            <li><a href="https://cristian021195.github.io/portfolio/" target="_blank">sobre mi</a></li>
         </ul>
     </header>
     <main>
@@ -587,6 +591,7 @@ input[type="checkbox"]{display: none;}
             ]
         const $botonesColores = document.getElementById('botones_colores');
         const $themeColor = document.getElementById('theme-color');
+        const $copyStatus = document.getElementById('copy-status');
 
         function crearListadoColores(listado = []){
             listado.forEach(e=>{
@@ -597,7 +602,9 @@ input[type="checkbox"]{display: none;}
                 $btn.addEventListener('click', (e)=>{
                     $header.style.backgroundColor = e.target.dataset.color;
                     $themeColor.setAttribute('content',e.target.dataset.color);
-                    if(copiarTexto(e.target.dataset.color)){alert('¡Color: '+e.target.dataset.color+' copiado al portapapeles!')}
+                    if(copiarTexto(e.target.dataset.color)){
+                        //alert('¡Color: '+e.target.dataset.color+' copiado al portapapeles!')
+                    }
                 })
 
                 $botonesColores.appendChild($btn);
@@ -610,7 +617,11 @@ input[type="checkbox"]{display: none;}
                     if(navigator.clipboard){
                         navigator.clipboard.writeText(texto).then(
                             res=>{
-                                alert("¡copiado! "+texto);
+                                //alert("¡copiado! "+texto);
+                                $copyStatus.className = '';
+                                setTimeout(() => {
+                                    $copyStatus.className = 'd-none';
+                                }, 3000);
                             }
                         ).catch((err)=>{
                             alert("¡Error! : "+JSON.stringify(err))
