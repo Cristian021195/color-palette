@@ -8,7 +8,7 @@
     "description": "App de colores - Cristian Ismael Gramajo",
     "icons": [
         {
-            "src":"https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg",
+            "src":"./colorwheel-512x512.svg",
             "sizes":"512x512",
             "type":"image/png"
         }

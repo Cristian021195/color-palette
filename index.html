@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paleta de colores</title>
-    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg"/>
+    <link rel="icon" type="image/svg+xml" href="./colorwheel-512x512.svg"/>
     <link rel="manifest" href="./manifest.json">
     <meta name="application-name" content="Colores"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -27,8 +27,8 @@
     <meta property="og:site_name" content="Colores">
     <meta property="og:description" content="Colores - Cristian Gramajo">
 
-    <link rel="apple-touch-icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg"/>
-    <link rel="mask-icon" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Colorwheel.svg" sizes="any" type="image/svg+xml" color="#F06292"/>
+    <link rel="apple-touch-icon" type="image/svg+xml" href="./colorwheel-512x512.svg"/>
+    <link rel="mask-icon" href="./colorwheel-512x512.svg" sizes="any" type="image/svg+xml" color="#F06292"/>
     <style>
         @font-face {
             font-family: 'Bebas Neue';
@@ -339,9 +339,11 @@ input[type="checkbox"]{display: none;}
     <footer><p>&copy; Cristian Gramajo - Todos los derechos reservados</p></footer>
 
     <script>
-        const $header = document.getElementById('header');
+        const $header = document.getElementById('header');        
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register("./serviceworker.js");
+        }else{
+            window.alert('Disponible en Localhost o HTTPS');
         }
         const colores = [
 {name:'red-0', color:'#FFEBEE'},
