@@ -1,10 +1,11 @@
-const CACHE_NAME = "portfolio-v26";
-const urlsToCache = ["./",
+const CACHE_NAME = "color-v26";
+const urlsToCache = [
+    "./",
     "./index.html",
     "./manifest.json",
-    "./css/BebasNeue-Regular.woff",
-    "./css/BebasNeue-Regular.woff2",
-    "./colorwheel-512x512.svg"];
+    "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap",
+    "./colorwheel-512x512.svg"
+];
 
 // si cambiamos la version de cache se elimina la anterior
 caches.keys().then(res=>{
@@ -28,14 +29,16 @@ self.addEventListener("install", event => {
 
 // Cache First Policy
 self.addEventListener("fetch", event => {
-  event.respondWith(
-      caches.match(event.request)  
-          .then(function(response) {
-              if (response) {  // CACHE HIT
-                  return response;
-              } else {    // CACHE MISS
-                  return fetch(event.request);
-              }
-          })
-  );
+    event.respondWith(
+        caches.match(event.request)
+            .then(function(response) {
+                if (response) {  // CACHE HIT
+                    console.log('fonded resource', event.request.url)
+                    return response;
+                } else {    // CACHE MISS
+                    console.log('not founded resource', event.request.url)
+                    return fetch(event.request);
+                }
+            })
+    );
 });
