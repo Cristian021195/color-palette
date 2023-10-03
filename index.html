@@ -57,6 +57,7 @@
             width: 100%;
             height: 4em;
             position: sticky;
+            z-index: 5;
             top: 0;
             box-shadow: 0px 2px 6px -1px rgba(0,0,0,0.5);
 -webkit-box-shadow: 0px 2px 6px -1px rgba(0,0,0,0.5);
@@ -251,52 +252,15 @@ section{    margin: 0 auto;
         grid-column: 1/8;grid-row: 6/8;
     }
 }
-.card-body p { white-space: nowrap; width: auto; overflow: hidden; text-overflow: ellipsis;}
-.card-body label::before{content: 'Leer Mas';}
-input[type="checkbox"]{display: none;}
 
-#horabondi_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
-#horabondi_c:checked ~ label::before{content: 'Leer Menos';}
-
-#romano_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
-#romano_c:checked ~ label::before{content: 'Leer Menos';}
-
-#horabondi_beta_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
-#horabondi_beta_c:checked ~ label::before{content: 'Leer Menos';}
-
-#panerita_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
-#panerita_c:checked ~ label::before{content: 'Leer Menos';}
-
-#notas_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
-#notas_c:checked ~ label::before{content: 'Leer Menos';}
-
-#climap_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
-#climap_c:checked ~ label::before{content: 'Leer Menos';}
-
-#escritos_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
-#escritos_c:checked ~ label::before{content: 'Leer Menos';}
-
-#listacompras_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
-#listacompras_c:checked ~ label::before{content: 'Leer Menos';}
-
-#radio_c:checked ~ p{white-space: initial; width: auto; overflow: hidden; text-overflow: ellipsis;}
-#radio_c:checked ~ label::before{content: 'Leer Menos';}
-
-
-
-.custom-grid {  display: grid;
-    display: grid; 
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
-  gap: 1em; 
-  grid-template-areas: 
-    ". . . . . . ."
-    ". . . . . . ."
-    ". . . . . . ."
-    ". . . . . . ."
-    ". . . . . . ."
-    ". . . . . . ."
-    ". . . . . . ."; 
+#top{background-color: dodgerblue;
+    padding: 0.65rem 0.7rem 0.65rem 0.7rem;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 0.7rem;
+    right: 0.7rem;
+    text-decoration: none;
+    color: #fff;
 }
 
     </style>
@@ -311,7 +275,7 @@ input[type="checkbox"]{display: none;}
             <li><a href="https://cristian021195.github.io/portfolio/" target="_blank">sobre mi</a></li>
         </ul>
     </header>
-    <main>
+    <main id="main">
 
         <section>
             <article class="p-2">
@@ -320,6 +284,7 @@ input[type="checkbox"]{display: none;}
                     <div class="col-12 d-flex justify-content-center flex-wrap" id="resultado_colores"></div>
                     <div class="col-12 d-flex justify-content-center flex-wrap" id="botones_colores"></div>
                 </div>
+                <a href="#main" id="top" title="Up / Top">▲</a>
             </article>
         </section>
 
